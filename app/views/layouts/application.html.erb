@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>Ticketee</title>
@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% flash.each do |key, value| %>
+  <div class='flash' id='<%= key %>'>
+    <%= value %>
+  </div>
+<% end %>
+<div style="background:blue;color:white;padding:3px 20px;">
+	<%= flash[:hola] %> 
+</div>
 <%= yield %>
 
 </body>
