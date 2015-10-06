@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+	  #@title = "TextMate 2 - Projects - Ticketee"
 	  @project = Project.find(params[:id])
 	end
 
