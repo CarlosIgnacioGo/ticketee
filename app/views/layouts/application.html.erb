@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>
-	<% if content_for?(:title)%>
-    	<%= yield(:title) %>
-    <% else %>
-    	Ticketee
-    <% end %>
+  <% if content_for?(:title) %>
+    <%= yield(:title) %>
+  <% else %>
+    Ticketee
+  <% end %>
 </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,5 +24,11 @@
 </div>
 <%= yield %>
 
+<%	n = "1" %>
+<% if is_a_number?(n) == true%>
+	<p>Su string es un numero</p>
+<%else%>
+	<p>Su string son palabras</p>
+<% end %>
 </body>
 </html>
