@@ -1,5 +1,6 @@
 <div id='ticket'>
   <h2><%= @ticket.title %></h2>
   <%= simple_format(@ticket.description) %>
+  <%= link_to 'Editar', edit_project_ticket_path(@project, @ticket) %>
 </div>
 
