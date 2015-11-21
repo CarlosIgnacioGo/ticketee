@@ -16,6 +16,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "projects";
+@import "tickets";
 
 .body{
 	background: blue;
@@ -29,4 +31,22 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+
+#attributes {
+  @extend .table;
+  @extend .table-condensed;
+  width: 65%;
+  th {
+   width: 35%;
+}
+  tr:first-child {
+   td, th {
+    border-top: 0px;
+   }
+}
+  td, th {
+   line-height: 24px !important;
+} }
+
 
