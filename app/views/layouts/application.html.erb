@@ -30,7 +30,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><li><%= link_to "Editar cuenta", edit_user_registration_path %></li></li>
+            <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
             <li><%= link_to "Cerrar session", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
@@ -46,7 +46,16 @@
     <%= value %>
   </div>
 <% end %>
-<%= link_to "New Project", new_admin_project_path %>
+ <% if current_user.try(:admin?) %>
+    <p>eres pulento</p>
+  <% end %>
+
+<% only_admin do %>  
+  <%= link_to "New Project", new_admin_project_path %>
+<%end%>
+<% if current_user.try(:admin?) %>
+  <%= link_to "New Project", new_admin_project_path %>
+<%end%>
 
 <%= yield %>
 </section>
