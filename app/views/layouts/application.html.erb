@@ -22,6 +22,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="navbar-right">
       <ul class="nav navbar-nav">
+        <li class="<%= "active" if current_page?("/") %>">
+          <%= link_to "Home", root_path %>
+        </li>
+        <% only_admin do %>
+          <li class="<%= "active" if current_page?("/admin") %>">
+            <%= link_to "Admin", admin_root_path %>
+          </li>
+        <%end%>
         <% unless user_signed_in? %>
           <li><%= link_to "Registrate", new_user_registration_path %></li>
           <li><%= link_to "Inicia session", new_user_session_path %></li>
@@ -46,14 +54,8 @@
     <%= value %>
   </div>
 <% end %>
- <% if current_user.try(:admin?) %>
-    <p>eres pulento</p>
-  <% end %>
 
 <% only_admin do %>  
-  <%= link_to "New Project", new_admin_project_path %>
-<%end%>
-<% if current_user.try(:admin?) %>
   <%= link_to "New Project", new_admin_project_path %>
 <%end%>
 
